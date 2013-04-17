@@ -1,0 +1,103 @@
+.reveal h1{
+	font-size: 250px;
+}
+
+.reveal a.ref{
+	font-size: 20px;
+	color: #7a7a7a;
+}
+
+/* Blockquote styling */
+.reveal blockquote{
+	/*font-style: normal;*/
+	padding:20px;
+	border-radius: 10px;
+	-o-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin-top:40px;
+	margin-bottom:40px;
+	line-height: 1.4;
+}
+blockquote:before {
+	display: block;
+	content: open-quote;
+	font-size: 200px;
+	position: absolute;
+	left: -130px;
+	top: 0px;
+	color: #7a7a7a;
+	font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
+	font-weight: bold;
+}
+blockquote:after {
+	display: block;
+	content: close-quote;
+	font-size: 200px;
+	position: absolute;
+	right: -110px;
+	bottom: -150px;
+	color: #7a7a7a;
+	font-family: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif;
+	font-weight: bold;
+}
+
+blockquote.small{
+	font-size: 70%;
+}
+
+
+/* Golang code styling */
+div.code {
+  outline: 0px solid transparent;
+}
+div.playground {
+  position: relative;
+}
+div.output {
+  /*position: absolute;*/
+  left: 50%;
+  top: 50%;
+  right: 40px;
+  bottom: 40px;
+  background: #202020;
+  padding: 5px 10px;
+  z-index: 2;
+
+  border-radius: 10px;
+  -o-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+
+}
+div.output pre {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+div.output .stdout, div.output pre {
+  color: #e6e6e6;
+}
+div.output .stderr, div.output .error {
+  color: rgb(244, 74, 63);
+}
+div.output .system, div.output .exit {
+  color: rgb(255, 209, 77)
+}
+.buttons {
+  position: relative;
+  float: right;
+  top: -60px;
+  right: 10px;
+}
+div.output .buttons {
+  position: absolute;
+  float: none;
+  top: auto;
+  right: 5px;
+  bottom: 5px;
+}
