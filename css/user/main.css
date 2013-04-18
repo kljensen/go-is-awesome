@@ -93,6 +93,7 @@ div.output pre {
 }
 div.output .stdout, div.output pre {
   color: #e6e6e6;
+  font-family: 'Menlo', 'Monaco', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; !important;
 }
 div.output .stderr, div.output .error {
   color: rgb(244, 74, 63);
@@ -123,8 +124,8 @@ div.output .buttons {
         height: 400px;
         display:block;
         text-align: left;
-        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; !important;
-        font-size: 16px;
+        font-family: 'Menlo', 'Monaco', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; !important;
+        font-size: 20px;
         line-height: normal;
 
 }
