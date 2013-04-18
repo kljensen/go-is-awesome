@@ -154,6 +154,9 @@ background-position: center;
 border-radius: 3px;
 border: 1px solid transparent;
 }
+    span.ace_fold-widget{
+      display: none;
+    }
     .ace_editor {
         position: relative !important;
         border: 1px solid lightgray;
