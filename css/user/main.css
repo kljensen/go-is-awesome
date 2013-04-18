@@ -48,11 +48,23 @@ blockquote.small{
 
 
 /* Golang code styling */
-div.code {
+.reveal code {
+  padding: 50px
+}
+/*div.code {
   outline: 0px solid transparent;
+}
+*/
+.reveal code{
+  border: none;
 }
 div.playground {
   position: relative;
+    background: #2d2d2d;
+  border-radius: 10px;
+  -o-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
 }
 div.output {
   /*position: absolute;*/
@@ -101,3 +113,86 @@ div.output .buttons {
   right: 5px;
   bottom: 5px;
 }
+
+
+/* ACE editor */
+.reveal .editor{
+ position: absolute;
+ margin-left: auto;
+        width: 800px;
+        height: 400px;
+        display:block;
+        text-align: left;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; !important;
+        font-size: 16px;
+        line-height: normal;
+
+}
+div.ace_gutter{
+  width: 60px;
+}
+div.ace_gutter-cell {
+padding-left: 19px;
+padding-right: 6px;
+background-repeat: no-repeat;
+}
+div.ace_gutter-layer{
+  width: auto;
+}
+div.ace_fold-widget {
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+margin: 0 -12px 0 1px;
+display: inline-block;
+width: 11px;
+vertical-align: top;
+background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%00%05%…4%A9*-%EEsw%C8%CC%11%EE%96w%D8%DC%E9*Eh%0C%151(%00%00%00%00IEND%AEB%60%82");
+background-repeat: no-repeat;
+background-position: center;
+border-radius: 3px;
+border: 1px solid transparent;
+}
+    .ace_editor {
+        position: relative !important;
+        border: 1px solid lightgray;
+        margin: auto;
+    }
+
+    .ace_editor.fullScreen {
+        height: auto;
+        width: auto;
+        border: 0;
+        margin: 0;
+        position: fixed !important;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        background: white;
+    }
+
+    .fullScreen {
+        overflow: hidden
+    }
+
+    .scrollmargin {
+        height: 500px;
+        text-align: center;
+    }
+
+    .large-button {
+        color: lightblue;
+        cursor: pointer;
+        font: 30px arial;
+        padding: 20px;
+        text-align: center;
+        border: medium solid transparent;
+        display: inline-block;
+    }
+    .large-button:hover {
+        border: medium solid lightgray;
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 0 0 12px 0 lightblue;
+    }

@@ -2,7 +2,8 @@ Go is Awesome
 =============
 
 This is a presentation about [Go](http://golang.org) on which
-I am working.  It uses [Reveal.js](http://lab.hakim.se/reveal-js/)
+I am working.  It uses [Reveal.js](http://lab.hakim.se/reveal-js/),
+the [Ace editor](http://ajaxorg.github.io/ace/),
 and the "[Present](https://code.google.com/p/go/source/browse/?repo=talks#hg%2Fpresent)" WebSocket service
 from [talks.google.org](http://talks.golang.org/).  (Both are 
 available under a BSD-style license and code from each is 
@@ -20,7 +21,7 @@ assuming that you're in the top-level directory.
 
 ## License
 
-Those works here created by me (ie. not the Reveal.js and Present code)
+Those works here created by me
 are available under a
 [Creative Commons Attribution](http://creativecommons.org/licenses/by/3.0/)
 license in the case of text and an MIT license, shown below, in the

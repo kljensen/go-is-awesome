@@ -51,19 +51,35 @@
 
 				</section>
 				<section>
-					<h2>GO has the</h2>
+					<h2>GO is like the...</h2>
 
 					<ul>
 						<li class="fragment roll-in">
 							productivity of Python/Ruby
 						</li>
 						<li class="fragment roll-in">
-							performance of C
+							performance of C &
 						</li>
 						<li class="fragment roll-in">
 							concurrency of Erlang
 						</li>
 					</ul>
+				</section>
+
+				<section>
+					<h2><small>The</small> Go language is</h2>
+
+					<ul>
+						<li>compiled</li>
+						<li>garbage-collected</li>
+						<li>foo</li>
+					</ul>
+					<h2><br><small>And</small> it natively supports</h2>
+					<ul>
+						<li>concurrency</li>
+						<li>cross-compilation</li>
+					</ul>
+
 				</section>
 
 				<section>
@@ -103,12 +119,26 @@ After we rolled out our Go version, we reduced our server count to two and we re
 				</section>
 
 				<section>
+					<h2>Heroku</h2>
+					<a href="http://blog.golang.org/2011/04/go-at-heroku.html">Go at Heroku</a>
+					<blockquote class="small">
+						Fortunately, Go's concurrency primitives made the task much easier...In the same way that garbage collectors improve upon malloc and free, we found that goroutines and channels improve upon the lock-based approach to concurrency. These tools let us avoid complex bookkeeping and stay.
+					</blockquote>
+					<a class="ref" href="http://blog.golang.org/2011/04/go-at-heroku.html">http://blog.golang.org/2011/04/go-at-heroku.html</a>
+				</section>
+
+				<section>
+					<h1>Ok</h1>
+					<h2>learn us some Go</h2>
+				</section>
+
+				<section>
 					
 					<h2>你好世界</h2>
 
 					<div class="code playground" contenteditable="true" spellcheck="false">
 						<pre style="display: none"></pre>
-						<pre><code>
+						<pre><code class="go">
 package main
 
 import "fmt"
@@ -122,10 +152,18 @@ func main() {
 				</section>
 				<section>
 					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
+
+<div class="playground">
+<code class="go editor">
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, 世界！")
+}</code>
+</div>
+					    
 
 
 					<aside class="notes">
@@ -441,7 +479,7 @@ function linkify( selector ) {
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad('golang'); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
@@ -452,6 +490,21 @@ function linkify( selector ) {
 		</script>
 		<script src='js/socket.js'></script>
 		<script src='js/play.js'></script>
+		<script src='js/jquery.js'></script>
+	<script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 
+
+	<script>
+		$('.editor').each(function(){
+		    var editor = ace.edit(this);
+		    editor.setTheme("ace/theme/tomorrow_night");
+		    editor.getSession().setMode("ace/mode/golang");
+		    editor.getSession().setShowGutter(false);
+		    this.data('editor', editor);
+		    console.log(this);
+		    console.log("woot");
+		    alert("woot");
+		});
+	</script>
 	</body>
 </html>

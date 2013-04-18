@@ -12,19 +12,33 @@
   }
 
   function text(node) {
+    // Check for an ACE editor
+
+    // MUST have Ace installed
     var s = "";
-    for (var i = 0; i < node.childNodes.length; i++) {
-      var n = node.childNodes[i];
-      if (n.nodeType === 1 && n.tagName === "PRE") {
-        var innerText = n.innerText === undefined ? "textContent" : "innerText";
-        s += n[innerText] + "\n";
-        continue;
-      }
-      if (n.nodeType === 1 && n.tagName !== "BUTTON") {
-        s += text(n);
-      }
-    }
+    $(node).find('.ace_editor').each(function(){
+      s += ace.edit(this).getValue();
+    });
+    console.log(s);
     return s;
+    // node.parentElement.className.indexOf('ace_editor')
+
+    // if (typeof(ace) != 'undefined' &&  != -1) {
+    // };
+    // // Otherwise do normal stuff
+    // var s = "";
+    // for (var i = 0; i < node.childNodes.length; i++) {
+    //   var n = node.childNodes[i];
+    //   if (n.nodeType === 1 && n.tagName === "PRE") {
+    //     var innerText = n.innerText === undefined ? "textContent" : "innerText";
+    //     s += n[innerText] + "\n";
+    //     continue;
+    //   }
+    //   if (n.nodeType === 1 && n.tagName !== "BUTTON") {
+    //     s += text(n);
+    //   }
+    // }
+    // return s;
   }
 
   function init(code) {
