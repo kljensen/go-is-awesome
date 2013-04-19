@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Go is awesome</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -32,7 +32,6 @@
 		<!-- My custom changes -->
 		<link rel="stylesheet" type="text/css" href="css/user/tomorrow-night-eighties.css">
 		<link rel="stylesheet" type="text/css" href="css/user/main.css">
-
 		<link rel="stylesheet" type="text/css" href="css/user/gh-buttons.css">
 	</head>
 
@@ -153,9 +152,9 @@ func main() {
 				</section>
 
 				 -->
-				 
-				<section>
-					<h2>Heads Up</h2>
+
+<section data-transition="none">
+<h2>你好, World</h2>
 
 <div class="playground">
 <code class="go editor">package main
@@ -164,19 +163,89 @@ import "fmt"
 
 func main() {
     fmt.Println("Hello, 世界！")
-    fmt.Println("woot shizzle")
-    for i:=0; i<5; i++ {
-        fmt.Println(i)
-    }
 }</code>
 </div>
-					    
+</section>
 
+<section data-transition="none">
+<section data-transition="none">
+<h1>Basic types</h1>
+<h2><small>&amp;</small> variable initialization</h2>
+</section>
+<section data-transition="none">
+<h2>Variables are statically typed</h2>
+<p>The type can be set explicity or implicitly</p><br>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
+<div class="playground">
+<code class="go editor" style="height:250px">package main
+import "fmt"
+
+func main() {
+
+	// Explicit
+	var i int
+	i = 5
+
+	// Implicit
+	j := 4
+
+	fmt.Println(i + j)
+}</code>
+</div>
+</section>
+<section data-transition="none">
+<h2>Basic built-in types</h2>
+<br>
+
+<div class="playground">
+<code class="go editor" style="">package main
+import "fmt"
+
+func main() {
+
+	var i int
+	i = 42
+	fmt.Println(i)
+
+	var j float32
+	j = 3.14
+	fmt.Println(j)
+
+	var awesome bool
+	awesome = true
+	fmt.Println(awesome)
+
+	var x byte
+	x = 'a'
+	fmt.Println(x)
+}</code>
+</div>
+</section>
+<section data-transition="none">
+<h2>Same code, using implicit format</h2>
+<br>
+
+<div class="playground">
+<code class="go editor" style="">package main
+import "fmt"
+
+func main() {
+
+	i := 42
+	fmt.Println(i)
+
+	j := 3.14
+	fmt.Println(j)
+
+	awesome := true
+	fmt.Println(awesome)
+
+	x := 'a'
+	fmt.Println(x)
+}</code>
+</div>
+</section>
+</section>
 
 				<!-- Example of nested vertical slides -->
 				<section>
@@ -506,11 +575,6 @@ function linkify( selector ) {
 		    var editor = ace.edit(this);
 		    editor.setTheme("ace/theme/tomorrow_night");
 		    editor.getSession().setMode("ace/mode/golang");
-		    editor.getSession().setShowGutter(false);
-		    this.data('editor', editor);
-		    console.log(this);
-		    console.log("woot");
-		    alert("woot");
 		});
 	</script>
 	</body>
