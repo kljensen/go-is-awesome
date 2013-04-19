@@ -70,18 +70,18 @@
 
     var run = document.createElement('button');
     run.innerHTML = 'Run';
-    run.className = 'run';
+    run.className = 'run button';
     run.addEventListener("click", onRun, false);
     var run2 = document.createElement('button');
-    run2.className = 'run';
+    run2.className = 'run button';
     run2.innerHTML = 'Run';
     run2.addEventListener("click", onRun, false);
     var kill = document.createElement('button');
-    kill.className = 'kill';
+    kill.className = 'kill button';
     kill.innerHTML = 'Kill';
     kill.addEventListener("click", onKill, false);
     var close = document.createElement('button');
-    close.className = 'close';
+    close.className = 'close button primary';
     close.innerHTML = 'Close';
     close.addEventListener("click", onClose, false);
 
@@ -93,6 +93,7 @@
 
     var buttons = document.createElement('div');
     buttons.classList.add('buttons');
+    buttons.classList.add('button-group');
     buttons.appendChild(run2);
     buttons.appendChild(kill);
     buttons.appendChild(close);

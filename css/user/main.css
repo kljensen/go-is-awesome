@@ -60,28 +60,40 @@ blockquote.small{
 }
 div.playground {
   position: relative;
-    background: #2d2d2d;
-  border-radius: 10px;
-  -o-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+    /*background: #2d2d2d;*/
+}
+div.playground code{
+  margin: auto;
+  margin-bottom: 20px;
+  -moz-box-shadow:    5px 5px 10px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  box-shadow:         5px 5px 10px rgba(0,0,0,0.5);
+}
+button{
+  padding: 5px;
+  font-size: 20px;
 }
 div.output {
-  /*position: absolute;*/
-  left: 50%;
-  top: 50%;
-  right: 40px;
-  bottom: 40px;
-  background: #202020;
-  padding: 5px 10px;
+  position: absolute;
+  right: -40px;
+  bottom: 20px;
+  background: #282a2e;
+  width: 40%;
+  height:50%;
+  padding: 20px;
   z-index: 2;
+  border: 5px solid #6E757C;
+  border-radius: 5px;
+  -o-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-box-shadow:    5px 5px 10px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  box-shadow:         5px 5px 10px rgba(0,0,0,0.5);
 
-  border-radius: 10px;
-  -o-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
 
 }
+
 div.output pre {
   margin: 0;
   padding: 0;
@@ -90,10 +102,12 @@ div.output pre {
   width: 100%;
   height: 100%;
   overflow: auto;
+  box-shadow: none;
+          font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; !important;
+
 }
 div.output .stdout, div.output pre {
   color: #e6e6e6;
-  font-family: 'Menlo', 'Monaco', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; !important;
 }
 div.output .stderr, div.output .error {
   color: rgb(244, 74, 63);
@@ -101,20 +115,17 @@ div.output .stderr, div.output .error {
 div.output .system, div.output .exit {
   color: rgb(255, 209, 77)
 }
-.buttons {
-  position: relative;
-  float: right;
-  top: -60px;
-  right: 10px;
-}
 div.output .buttons {
   position: absolute;
   float: none;
   top: auto;
-  right: 5px;
-  bottom: 5px;
+  right: 10px;
+  bottom: 10px;
+  z-index: 3;
 }
-
+button.button {
+    font-size: 16px;
+}
 
 /* ACE editor */
 .reveal .editor{
@@ -124,8 +135,8 @@ div.output .buttons {
         height: 400px;
         display:block;
         text-align: left;
-        font-family: 'Menlo', 'Monaco', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; !important;
-        font-size: 20px;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; !important;
+        font-size: 16px;
         line-height: normal;
 
 }
@@ -140,23 +151,9 @@ background-repeat: no-repeat;
 div.ace_gutter-layer{
   width: auto;
 }
-div.ace_fold-widget {
--moz-box-sizing: border-box;
--webkit-box-sizing: border-box;
-box-sizing: border-box;
-margin: 0 -12px 0 1px;
-display: inline-block;
-width: 11px;
-vertical-align: top;
-background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%00%05%…4%A9*-%EEsw%C8%CC%11%EE%96w%D8%DC%E9*Eh%0C%151(%00%00%00%00IEND%AEB%60%82");
-background-repeat: no-repeat;
-background-position: center;
-border-radius: 3px;
-border: 1px solid transparent;
+span.ace_fold-widget {
+  display: none;
 }
-    span.ace_fold-widget{
-      display: none;
-    }
     .ace_editor {
         position: relative !important;
         border: 1px solid lightgray;
@@ -200,3 +197,18 @@ border: 1px solid transparent;
         border-radius: 10px 10px 10px 10px;
         box-shadow: 0 0 12px 0 lightblue;
     }
+
+    /* Scrollbars */
+::-webkit-scrollbar {
+    height: 12px;
+  width: 12px;
+  background: #000;
+    }
+::-webkit-scrollbar-thumb {
+    background: #404447;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+::-webkit-scrollbar-corner {
+    background: #000;
+}
