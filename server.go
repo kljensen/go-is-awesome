@@ -40,7 +40,9 @@ func main() {
 	}
 	port := ":8080"
 	log.Printf("Serving at localhost%s\n", port)
-	http.Handle("/socket", socket.Handler)
-	http.Handle("/", http.FileServer(http.Dir(pathToServe)))
-	log.Fatal(http.ListenAndServe(port, nil))
+	mux := http.NewServeMux()
+	mux.Handle("/socket", socket.Handler)
+	mux.Handle("/", http.FileServer(http.Dir(pathToServe)))
+	server := &http.Server{Addr: port, Handler: mux}
+	log.Fatal(server.ListenAndServe())
 }
