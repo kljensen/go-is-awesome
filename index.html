@@ -74,7 +74,7 @@
 						<li>garbage-collected</li>
 						<li>foo</li>
 					</ul>
-					<h2><br><small>And</small> it natively supports</h2>
+					<h2><br><small>And it</small> natively supports</h2>
 					<ul>
 						<li>concurrency</li>
 						<li>cross-compilation</li>
@@ -167,6 +167,103 @@ func main() {
 </div>
 </section>
 
+
+<!-- START VERTICAL -->
+<section data-transition="none">
+<section data-transition="none">
+<h2>Basic Language Structure</h2>
+<ul>
+	<li>Looks like C, but</li>
+	<li>Semicolons optional</li>
+</ul>
+</section>
+<section data-transition="none">
+<h2>Packages</h2>
+<ul>
+	<li>Every piece of code lives in a packge</li>
+	<li>Imports give you access to other packages</li>
+</ul>
+<br>
+<br>
+<div class="playground">
+<code class="go editor" style="height:250px">package main
+
+import (
+    "fmt"
+    "math"
+)
+
+func main() {
+    fmt.Println("Happy", math.Pi, "Day")
+}
+</code>
+</div>
+</section>
+<section data-transition="none">
+<h3>Packages only export Capitalized names</h3>
+<p>That's how you control what is private / public</p>
+	<br>
+<div class="playground">
+<code class="go editor" style="height:250px">package main
+
+import (
+    "fmt"
+    "math"
+)
+
+func main() {
+	// Won't compile, "pi" is lowercase/private
+    fmt.Println("Happy", math.pi, "Day")
+}
+</code>
+</div>
+</section>
+<section data-transition="none">
+<h3>Functions</h3>
+<p>Inputs and outputs must be typed</p>
+	<br>
+<div class="playground">
+<code class="go editor" style="height:250px">package main
+
+import "fmt"
+
+func add(x int, y int) int {
+    return x + y
+}
+
+func main() {
+    fmt.Println(add(42, 13))
+}
+</code>
+</div>
+</section>
+<section data-transition="none">
+<h3>Functions can return multiple values</h3>
+<br>
+<div class="playground">
+<code class="go editor" style="height:275px">package main
+
+import "fmt"
+
+func sumdiff(x int, y int) (int, int) {
+    var xysum, xydiff int
+	xysum  = x + y
+	xydiff = x - y
+	return xysum, xydiff
+}
+
+func main() {
+    a, b := sumdiff(42, 13)
+    fmt.Println(a)
+    fmt.Println(b)
+}
+</code>
+</div>
+</section>
+</section>
+<!-- END VERTICAL -->
+
+<!-- START VERTICAL -->
 <section data-transition="none">
 <section data-transition="none">
 <h1>Basic types</h1>
@@ -211,9 +308,9 @@ func main() {
 	j = 3.14
 	fmt.Println(j)
 
-	var awesome bool
-	awesome = true
-	fmt.Println(awesome)
+	var isAwesome bool
+	isAwesome = true
+	fmt.Println(isAwesome)
 
 	var x byte
 	x = 'a'
@@ -239,8 +336,8 @@ func main() {
 	j := 3.14
 	fmt.Println(j)
 
-	awesome := true
-	fmt.Println(awesome)
+	isAwesome := true
+	fmt.Println(isAwesome)
 
 	x := 'a'
 	fmt.Println(x)
@@ -261,7 +358,7 @@ import "fmt"
 func main() {
 
 	// Array, fixed size
-	dayArray := [7]int{1, 2, 3, 4, 5, 6, 7}
+	dayArray := [7]int {1, 2, 3, 4, 5, 6, 7}
     fmt.Println(dayArray)
 
     // Slice, flexible size
@@ -276,127 +373,99 @@ func main() {
 </section>
 
 
+<section data-transition="none">
+<h2>Maps</h2>
+<p>The keys and values can be any type</p>
+<br>
+
+<div class="playground">
+<code class="go editor" style="height:300px">package main
+import "fmt"
+
+func main() {
+
+	var timeZone = map[string] int {
+	    "UTC":  0,
+	    "EST": -5,
+	    "CST": -6,
+	    "MST": -7,
+	    "PST": -8,
+	}
+	fmt.Println(timeZone["EST"])
+}</code>
+</div>
 </section>
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#" class="navigate-down">down</a>.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+<section data-transition="none">
+<h2>Structs</h2>
+<p>They're just collections of fields, as in C</p>
+<br>
 
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview. Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
+<div class="playground">
+<code class="go editor" style="height:300px">package main
+import "fmt"
 
-				<section>
-					<h2>rvl.io</h2>
-					<p>
-						If you don't like writing slides in HTML you can use the online editor <a href="http://www.rvl.io" target="_blank">rvl.io</a>.
-					</p>
-				</section>
+type Rect struct {
+    H int
+    W int
+}
 
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
-					</p>
-				</section>
+func main() {
+    r := Rect{1, 2}
+    fmt.Println(r.H + r.W)
+}</code>
+</div>
+</section>
 
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
+<section data-transition="none">
+<h2>Struct methods</h2>
+<p>The struct type precedes the function definition</p>
+<br>
 
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
+<div class="playground">
+<code class="go editor" style="height:300px">package main
+import "fmt"
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
+type Rect struct {
+    H, W int
+}
 
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+func (r *Rect) Area() int {
+    return r.W * r.H
+}
 
-							<section data-markdown>
-							  ## Markdown support
+func main() {
+    rect := Rect{3, 6}
+    fmt.Println(rect.Area())
+}</code>
+</div>
+</section>
+<section data-transition="none">
+<h2>All Go types have default values</h2>
+<br>
 
-							  For those of you who like that sort of thing.
-							  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-							</section>
-					</script>
-				</section>
+<div class="playground">
+<code class="go editor" style="height:300px">package main
+import "fmt"
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
+type Rect struct {
+    H, W int
+}
 
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="?theme=sky#/themes">Sky</a> -
-						<a href="?theme=beige#/themes">Beige</a> -
-						<a href="?theme=simple#/themes">Simple</a> -
-						<a href="?theme=serif#/themes">Serif</a> -
-						<a href="?theme=night#/themes">Night</a> -
-						<a href="?#/themes">Default</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
-				</section>
+func main() {
+	var a int
+	var b float
+	var c [5]int
+	var d = make([]int, 5)
+	var e make(map[string]int)
+	var f Rect
+	fmt.Println(a, b, c, d, e, f)
+}</code>
+</div>
+</section>
+</section>
+<!-- END VERTICAL -->
+
 
 				<section>
 					<section data-state="alert">
@@ -595,11 +664,9 @@ function linkify( selector ) {
 			});
 
 		</script>
-		<script src='js/jquery.js'></script>
-		<!-- 
-		<script src='js/socket.js'></script>
-		<script src='js/play.js'></script>
-	-->
+		<script src='js/jquery.js' type="text/javascript" charset="utf-8"></script>
+		<script src='js/socket.js' type="text/javascript" charset="utf-8"></script>
+		<script src='js/play.js' type="text/javascript" charset="utf-8"></script>
 	<script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 
 
