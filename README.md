@@ -7,7 +7,9 @@ the [Ace editor](http://ajaxorg.github.io/ace/),
 and the "[Present](https://code.google.com/p/go/source/browse/?repo=talks#hg%2Fpresent)" WebSocket service
 from [talks.google.org](http://talks.golang.org/).  (Both are 
 available under a BSD-style license and code from each is 
-bundled herein.)
+bundled herein.)  These components together allow for you
+to edit and run Go code in the presentation, which, obviously,
+is in the browser in this case.
 
 ## Running the presentation
 
@@ -18,6 +20,17 @@ to run the `server.go` code as such
 	go run ./server.go .
 
 assuming that you're in the top-level directory.
+
+## Resources
+
+This code uses all of the following:
+
+* [Reveal.js](http://lab.hakim.se/reveal-js/);
+* the [Ace editor](http://ajaxorg.github.io/ace/);
+* the "[Present](https://code.google.com/p/go/source/browse/?repo=talks#hg%2Fpresent)" WebSocket service from [talks.google.org](http://talks.golang.org/); and,
+* ["GitHub" buttons](https://github.com/michenriksen/css3buttons).
+
+Thanks much to the authors of those projects!
 
 ## License
 
