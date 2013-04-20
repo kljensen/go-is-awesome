@@ -5,11 +5,10 @@ This is a presentation about [Go](http://golang.org) on which
 I am working.  It uses [Reveal.js](http://lab.hakim.se/reveal-js/),
 the [Ace editor](http://ajaxorg.github.io/ace/),
 and the "[Present](https://code.google.com/p/go/source/browse/?repo=talks#hg%2Fpresent)" WebSocket service
-from [talks.google.org](http://talks.golang.org/).  (Both are 
-available under a BSD-style license and code from each is 
-bundled herein.)  These components together allow for you
-to edit and run Go code in the presentation, which, obviously,
-is in the browser in this case.
+from [talks.google.org](http://talks.golang.org/).  (All three are 
+available under a BSD-style license, and code from each is 
+bundled herein.)  These components together allow you
+to edit and run Go code in the presentation/browser.
 
 ## Running the presentation
 
