@@ -1,13 +1,28 @@
 // Before the document is ready, wrap
 // our code elements
-$('code').each(function(){
-	// Wrap this in a playground div so that
-	// the Go present tool works.
-	var dis = $(this)
-	dis.addClass("go");
-	dis.addClass("editor");
-	dis.wrap('<div class="playground" />');
-});
+(function () {
+	$('code').each(function(){
+		var dis = $(this)
+
+		// Make sure transitions on slides with code
+		// are "none", otherwise they're borked-ish.
+		var parentSections = dis.parent('section')
+		parentSections.attr('data-transition', 'none')
+
+		// Do the same if the slide is nested.
+		parentSections.parent('section').attr('data-transition', 'none')
+
+		// Wrap this in a playground div so that
+		// the Go present tool works.
+		dis.wrap('<div class="playground" />');
+
+		// Add Go class to help ACE with syntax highlighting
+		dis.addClass("go");
+
+		// .editor selector used elsewhere
+		dis.addClass("editor");
+	});
+}());
 
 $(document).ready(function () {
 	function activeEditor (el) {
