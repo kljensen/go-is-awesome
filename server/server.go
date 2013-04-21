@@ -38,11 +38,11 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	port := ":8080"
-	log.Printf("Serving at localhost%s\n", port)
+	addr1 := "localhost:8080"
+	log.Printf("Serving at %s\n", addr1)
 	mux := http.NewServeMux()
 	mux.Handle("/socket", socket.Handler)
 	mux.Handle("/", http.FileServer(http.Dir(pathToServe)))
-	server := &http.Server{Addr: port, Handler: mux}
+	server := &http.Server{Addr: addr1, Handler: mux}
 	log.Fatal(server.ListenAndServe())
 }
