@@ -61,6 +61,7 @@ blockquote.small{
 div.playground {
   position: relative;
     /*background: #2d2d2d;*/
+    margin-top:30px;
 }
 div.playground code{
   margin: auto;

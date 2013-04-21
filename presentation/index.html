@@ -81,7 +81,7 @@
 						<li>concurrent, in a way that keeps you sane</li>
 						<li>designed for working programmers</li>
 					</ul>
-					<br>
+					
 					<br>
 					<a class="ref" href="http://talks.golang.org/2012/simple.slide#5">http://talks.golang.org/2012/simple.slide#5</a>
 
@@ -145,133 +145,52 @@ After we rolled out our Go version, we reduced our server count to two and we re
 					<h2>learn us some Go</h2>
 				</section>
 
-				<!-- <section>
-					
-					<h2>你好世界</h2>
-
-					<div class="code playground" contenteditable="true" spellcheck="false">
-						<pre style="display: none"></pre>
-						<pre><code class="go">
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello, 世界！")
-}
-</code></pre>
-						<pre style="display: none"></pre>
-					</div>
-				</section>
-
-				 -->
 
 <section data-transition="none">
 <h2>你好, World</h2>
 
-<div class="playground">
-<code class="go editor">package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello, 世界！")
-}</code>
-</div>
+<code data-src="examples/hello_world.go"></code>
 </section>
 
 
 <!-- START VERTICAL -->
 <section data-transition="none">
 <section data-transition="none">
-<h2>Basic Language Structure</h2>
-<ul>
-	<li>Looks like C, but</li>
-	<li>Semicolons optional</li>
-</ul>
+	<h2>Basic Language Structure</h2>
+	<ul>
+		<li>Looks like C, but</li>
+		<li>Semicolons optional</li>
+	</ul>
 </section>
 <section data-transition="none">
-<h2>Packages</h2>
-<ul>
-	<li>Every piece of code lives in a packge</li>
-	<li>Imports give you access to other packages</li>
-</ul>
-<br>
-<br>
-<div class="playground">
-<code class="go editor" style="height:250px">package main
-
-import (
-    "fmt"
-    "math"
-)
-
-func main() {
-    fmt.Println("Happy", math.Pi, "Day")
-}
-</code>
-</div>
+	<h2>Packages</h2>
+	<ul>
+		<li>Every piece of code lives in a packge</li>
+		<li>Imports give you access to other packages</li>
+	</ul>
+	
+	
+	<code style="height:250px" data-src="examples/imports.go">
+	</code>
 </section>
 <section data-transition="none">
-<h3>Packages only export Capitalized names</h3>
-<p>That's how you control what is private / public</p>
-	<br>
-<div class="playground">
-<code class="go editor" style="height:250px">package main
-
-import (
-    "fmt"
-    "math"
-)
-
-func main() {
-	// Won't compile, "pi" is lowercase/private
-    fmt.Println("Happy", math.pi, "Day")
-}
-</code>
-</div>
+	<h3>Packages only export Capitalized names</h3>
+	<p>That's how you control what is private / public</p>
+		
+	<code style="height:250px" data-src="examples/exported_names.go">
+	</code>
 </section>
 <section data-transition="none">
-<h3>Functions</h3>
-<p>Inputs and outputs typed, passed by value</p>
-	<br>
-<div class="playground">
-<code class="go editor" style="height:250px">package main
-
-import "fmt"
-
-func add(x int, y int) int {
-    return x + y
-}
-
-func main() {
-    fmt.Println(add(42, 13))
-}
-</code>
-</div>
+	<h3>Functions</h3>
+	<p>Inputs and outputs typed, passed by value</p>
+		
+	<code style="height:250px" data-src="examples/functions.go"></code>
 </section>
 <section data-transition="none">
-<h3>Functions can return multiple values</h3>
-<br>
-<div class="playground">
-<code class="go editor" style="height:275px">package main
-
-import "fmt"
-
-func sumdiff(x int, y int) (int, int) {
-    var xysum, xydiff int
-	xysum  = x + y
-	xydiff = x - y
-	return xysum, xydiff
-}
-
-func main() {
-    a, b := sumdiff(42, 10)
-    fmt.Println(a)
-    fmt.Println(b)
-}
-</code>
-</div>
+	<h3>Functions can return multiple values</h3>
+	
+	<code style="height:275px" data-src="examples/function_multi_return.go">
+	</code>
 </section>
 </section>
 <!-- END VERTICAL -->
@@ -279,202 +198,67 @@ func main() {
 <!-- START VERTICAL -->
 <section data-transition="none">
 <section data-transition="none">
-<h1>Basic types</h1>
-<h2><small>&amp;</small> variable initialization</h2>
+	<h1>Basic types</h1>
+	<h2><small>&amp;</small> variable initialization</h2>
 </section>
 <section data-transition="none">
-<h2>Variables are statically typed</h2>
-<p>The type can be set explicity or implicitly</p><br>
+	<h2>Variables are statically typed</h2>
+	<p>The type can be set explicity or implicitly</p>
 
-<div class="playground">
-<code class="go editor" style="height:250px">package main
-import "fmt"
-
-func main() {
-
-	// Explicit
-	var i int
-	i = 5
-
-	// Implicit
-	j := 4
-
-	fmt.Println(i + j)
-}</code>
-</div>
+	<code style="height:250px" data-src="examples/var_init.go"></code>
 </section>
 <section data-transition="none">
-<h2>Basic built-in types</h2>
-<br>
-
-<div class="playground">
-<code class="go editor" style="">package main
-import "fmt"
-
-func main() {
-
-	var i int
-	i = 42
-	fmt.Println(i)
-
-	var j float32
-	j = 3.14
-	fmt.Println(j)
-
-	var isAwesome bool
-	isAwesome = true
-	fmt.Println(isAwesome)
-
-	var x byte
-	x = 'a'
-	fmt.Println(x)
-}</code>
-</div>
+	<h2>Basic built-in types</h2>
+	
+	<code data-src="examples/builtin_types.go"></code>
 </section>
 
 
 <section data-transition="none">
-<h2>Same code, using implicit format</h2>
-<br>
+	<h2>Same code, using implicit format</h2>
+	
 
-<div class="playground">
-<code class="go editor" style="">package main
-import "fmt"
-
-func main() {
-
-	i := 42
-	fmt.Println(i)
-
-	j := 3.14
-	fmt.Println(j)
-
-	isAwesome := true
-	fmt.Println(isAwesome)
-
-	x := 'a'
-	fmt.Println(x)
-}</code>
-</div>
+	<code data-src="examples/builtin_types_implicit.go"></code>
 </section>
 
 
 <section data-transition="none">
-<h2>Arrays and slices</h2>
-<p>The former, fixed size, the latter, flexible</p>
-<br>
+	<h2>Arrays and slices</h2>
+	<p>The former, fixed size, the latter, flexible</p>
+	
 
-<div class="playground">
-<code class="go editor" style="height:300px">package main
-import "fmt"
-
-func main() {
-
-	// Array, fixed size
-	dayArray := [7]int {1, 2, 3, 4, 5, 6, 7}
-    fmt.Println(dayArray)
-
-    // Slice, flexible size
-    daySlice := make([]int, 7)
-    for i, day := range dayArray{
-        daySlice[i] = day
-    }
-    daySlice = append(daySlice, 121, 122, 123, 124)
-    fmt.Println(daySlice)
-}</code>
-</div>
+	<code style="height:300px" data-src="examples/slices.go"></code>
 </section>
 
 
 <section data-transition="none">
-<h2>Maps</h2>
-<p>The keys and values can be any type</p>
-<br>
+	<h2>Maps</h2>
+	<p>The keys and values can be any type</p>
+	
 
-<div class="playground">
-<code class="go editor" style="height:300px">package main
-import "fmt"
-
-func main() {
-
-	var timeZone = map[string] int {
-	    "UTC":  0,
-	    "EST": -5,
-	    "CST": -6,
-	    "MST": -7,
-	    "PST": -8,
-	}
-	fmt.Println(timeZone["EST"])
-}</code>
-</div>
+	<code style="height:300px" data-src="examples/maps.go"></code>
 </section>
 
 <section data-transition="none">
-<h2>Structs</h2>
-<p>They're just collections of fields, as in C</p>
-<br>
+	<h2>Structs</h2>
+	<p>They're just collections of fields, as in C</p>
+	
 
-<div class="playground">
-<code class="go editor" style="height:300px">package main
-import "fmt"
-
-type Rect struct {
-    H int
-    W int
-}
-
-func main() {
-    r := Rect{1, 2}
-    fmt.Println(r.H + r.W)
-}</code>
-</div>
+	<code style="height:300px" data-src="examples/structs.go"></code>
 </section>
 
 <section data-transition="none">
-<h2>Struct methods</h2>
-<p>The struct type precedes the function definition</p>
-<br>
+	<h2>Struct methods</h2>
+	<p>The struct type precedes the function definition</p>
+	
 
-<div class="playground">
-<code class="go editor" style="height:300px">package main
-import "fmt"
-
-type Rect struct {
-    H, W int
-}
-
-func (r *Rect) Area() int {
-    return r.W * r.H
-}
-
-func main() {
-    rect := Rect{3, 6}
-    fmt.Println(rect.Area())
-}</code>
-</div>
+	<code style="height:300px" data-src="examples/struct_methods.go"></code>
 </section>
 <section data-transition="none">
-<h2>All Go types have default values</h2>
-<br>
+	<h2>All Go types have default values</h2>
+	
 
-<div class="playground">
-<code class="go editor" style="height:300px">package main
-import "fmt"
-
-type Rect struct {
-    H, W int
-}
-
-func main() {
-	var a int
-	var b float
-	var c [5]int
-	var d = make([]int, 5)
-	var e make(map[string]int)
-	var f Rect
-	fmt.Println(a, b, c, d, e, f)
-}</code>
-</div>
+	<code style="height:300px" data-src="examples/type_default_values.go"></code>
 </section>
 </section>
 <!-- END VERTICAL -->
@@ -486,221 +270,25 @@ func main() {
 <h1>Control flow</h1>
 </section>
 <section data-transition="none">
-<h2>Go only has one type of loop: for</h2>
-<p>But, it's pretty flexible</p><br>
+	<h2>for: the only loop in Go</h2>
+	<p>But, it's pretty flexible</p>
 
-<div class="playground">
-<code class="go editor" style="height:250px">package main
-
-import "fmt"
-
-func main() {
-    sum := 0
-    for i := 0; i < 10; i++ {
-        sum += i
-    }
-    fmt.Println(sum)
-
-    sum = 1
-    for sum < 1000 {
-        sum += sum
-    }
-    fmt.Println(sum)
-}
-</code>
-</div>
+	<code style="height:250px" data-src="examples/for.go"></code>
 </section>
 <section data-transition="none">
-<h2>IF</h2>
-<p>Can include an initialization statement, like "for"</p><br>
+	<h2>if</h2>
+	<p>Can include an initialization statement, like "for"</p>
 
-<div class="playground">
-<code class="go editor" style="height:300px">package main
-
-import "fmt"
-
-func main() {
-    boredByNow := true
-    if boredByNow == true {
-    	fmt.Println("Bored bro")
-	}
-
-	height := 1.8
-	weight := 100.0
-	if bmi := weight / (height * height); bmi > 32{
-		fmt.Println("Getting big dude")
-	}else{
-		fmt.Println("Have another donut")	
-	}
-}
-</code>
-</div>
+	<code style="height:300px" data-src="examples/if.go"></code>
 </section>
 </section>
 <!-- END VERTICAL -->
 
 
-				<section>
-					<section data-state="alert">
-						<h2>Global State</h2>
-						<p>
-							Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-							will be added as a class to the document element when the slide is open. This lets you
-							apply broader style changes, like switching the background.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="blackout">
-						<h2>"blackout"</h2>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="soothe">
-						<h2>"soothe"</h2>
-						<a href="#" class="image navigate-next">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(-90deg);">
-						</a>
-					</section>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<section>
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-					</a>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
-					</p>
-				</section>
-
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://hakim.se/projects/reveal-js">Leave feedback on my site</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>It's free</h2>
-					<p>
-						reveal.js and <a href="http://www.rvl.io">rvl.io</a> are entirely free but if you'd like to support the projects you can donate below.
-						Donations will go towards hosting and domain costs.
-					</p>
-					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-						<input type="hidden" name="cmd" value="_donations">
-						<input type="hidden" name="business" value="hakim.elhattab@gmail.com">
-						<input type="hidden" name="lc" value="US">
-						<input type="hidden" name="item_name" value="reveal.js / rvl.io">
-						<input type="hidden" name="no_note" value="0">
-						<input type="hidden" name="currency_code" value="USD">
-						<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-					</form>
-				</section>
-
-				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
-				</section>
+<section>
+	<h1>THE END</h1>
+	<h3>BY Hakim El Hattab / hakim.se</h3>
+</section>
 
 			</div>
 
@@ -738,17 +326,10 @@ function linkify( selector ) {
 
 		</script>
 		<script src='js/jquery.js' type="text/javascript" charset="utf-8"></script>
+	<script src="js/user/load_go_examples.js" type="text/javascript" charset="utf-8"></script>
 		<script src='js/socket.js' type="text/javascript" charset="utf-8"></script>
 		<script src='js/play.js' type="text/javascript" charset="utf-8"></script>
 	<script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 
-
-	<script>
-		$('.editor').each(function(){
-		    var editor = ace.edit(this);
-		    editor.setTheme("ace/theme/tomorrow_night");
-		    editor.getSession().setMode("ace/mode/golang");
-		});
-	</script>
 	</body>
 </html>
