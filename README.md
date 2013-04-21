@@ -16,9 +16,14 @@ You can run the presentation merely by opening `index.html`; however,
 if you'd like to run the Go code examples in the browser, you'll need
 to run the `server.go` code as such
 
-	go run ./server.go .
+	go run main.go ../presentation
 
-assuming that you're in the top-level directory.
+assuming that you're in the `server` directory.  Of course, to build
+`main.go` you'll likely first have to run
+
+	go get
+
+in order to fetch dependencies.
 
 ## Resources
 
