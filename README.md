@@ -14,7 +14,7 @@ to edit and run Go code in the presentation/browser.
 
 You can run the presentation merely by opening `index.html`; however,
 if you'd like to run the Go code examples in the browser, you'll need
-to run the `server.go` code as such
+to run the `server/main.go` code as such
 
 	go run main.go ../presentation
 
