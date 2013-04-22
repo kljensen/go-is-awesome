@@ -19,7 +19,6 @@
     $(node).find('.ace_editor').each(function(){
       s += ace.edit(this).getValue();
     });
-    console.log(s);
     return s;
     // node.parentElement.className.indexOf('ace_editor')
 
