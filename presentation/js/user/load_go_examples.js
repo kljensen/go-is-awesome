@@ -1,38 +1,44 @@
 // Before the document is ready, wrap
 // our code elements
-function resizeActiveEditors(height){
-
-}
-
-function toggleCodeMinMax () {
-	var els = $('#minmax')
-	var activeEditors = $('section.present').not('.stack').find('code.editor');
-	if (els.length == 1) {
-		els.remove();
-
-		activeEditors.each(function(i, el){
-			var jel = $(el);
-			jel.height(jel.data('originalHeight'));
-			editor = ace.edit(el);
-			editor.resize();
-		});	
-	}else{
-		// activeEditors.hide()
-		$('head').append('<style id="minmax">.reveal, .reveal .slides, .slides, section { position: absolute !important; width: 100% !important; height: 100% !important;} .playground-wrapper{ position: absolute !important; top: 0px; left: 0; width: 100% !important;height: 100% !important; margin: 0 !important; } div.ace_content{width:100%;}.playground{width:100% !important; height:80%;} div.output {right:25%; bottom:25%;}</style>');
-
-		// .reveal .editor{height:100%;}
-		activeEditors.each(function(i, el){
-			var jel = $(el);
-			jel.data('originalHeight', jel.height());
-			jel.height('90%');
-			editor = ace.edit(el);
-			editor.resize();
-		});	
-	};
-	resizeActiveEditors();
-}
 
 (function () {
+
+	function restoreEditorSizes () {
+		$('#minmax').remove();
+
+		var allEditors = $('section').find('code.editor');
+		allEditors.each(function(i, el){
+			var jel = $(el);
+			var height = jel.data('originalHeight')
+			if (typeof(height) != 'undefined') {
+				var jel = $(el);
+				jel.height(jel.data('originalHeight'));
+				editor = ace.edit(el);
+				editor.resize();
+				jel.removeData('originalHeight')				
+			};
+		});		
+	}
+
+	function toggleCodeMinMax () {
+		var els = $('#minmax')
+		if (els.length == 1) {
+			restoreEditorSizes();
+		}else{
+			// activeEditors.hide()
+			var activeEditors = $('section.present').not('.stack').find('code.editor');
+			$('head').append('<style id="minmax">.reveal, .reveal .slides, .slides, section { position: absolute !important; width: 100% !important; height: 100% !important;} .playground-wrapper{ position: absolute !important; top: 0px; left: 0; width: 100% !important;height: 100% !important; margin: 0 !important; } div.ace_content{width:100%;}.playground{width:100% !important; height:80%;} div.output {right:25%; bottom:25%;} .reveal .editor{font-size: 20px}</style>');
+
+			// .reveal .editor{height:100%;}
+			activeEditors.each(function(i, el){
+				var jel = $(el);
+				jel.data('originalHeight', jel.height());
+				jel.height('90%');
+				editor = ace.edit(el);
+				editor.resize();
+			});	
+		};
+	}
 
 	$('code').each(function(){
 		var dis = $(this)
@@ -58,8 +64,13 @@ function toggleCodeMinMax () {
 		// Wrap playgrounds to support making them fullscreen
 		$('div.playground').wrap('<div class="playground-wrapper" />')
 	});
-	$('div.playground').prepend('<a class="minmax">minmax</a>');
+	$('div.playground').prepend('<a class="minmax">&#10063;</a>');
 	$('a.minmax').click(toggleCodeMinMax);
+
+	Reveal.addEventListener( 'slidechanged', function( event ) {
+	    // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+	    restoreEditorSizes();
+	} );
 }());
 
 $(document).ready(function () {
