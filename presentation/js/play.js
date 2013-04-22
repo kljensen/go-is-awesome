@@ -58,14 +58,14 @@
       onKill();
       outpre.innerHTML = "";
       output.style.display = "block";
-      run.style.display = "none";
+      // run.style.display = "none";
       stopFunc = runFunc(text(code), outpre);
     }
 
     function onClose() {
       onKill();
       output.style.display = "none";
-      run.style.display = "inline-block";
+      // run.style.display = "inline-block";
     }
 
     var run = document.createElement('button');

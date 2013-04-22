@@ -49,10 +49,10 @@ blockquote.small{
 
 
 /* Golang code styling */
-.reveal code {
-  padding: 50px
+/*.reveal code {
+  padding: 0px
 }
-/*div.code {
+*//*div.code {
   outline: 0px solid transparent;
 }
 */
@@ -63,6 +63,7 @@ div.playground {
   position: relative;
     /*background: #2d2d2d;*/
     margin-top:30px;
+    padding:0px;
 }
 div.playground code{
   margin: auto;
@@ -70,6 +71,12 @@ div.playground code{
   -moz-box-shadow:    5px 5px 10px rgba(0,0,0,0.5);
   -webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
   box-shadow:         5px 5px 10px rgba(0,0,0,0.5);
+}
+div.playground a.minmax{
+  display:block;
+  font-size:20px;
+  text-align: right;
+  background: #25282C;
 }
 button{
   padding: 5px;
@@ -92,7 +99,8 @@ div.output {
   -moz-box-shadow:    5px 5px 10px rgba(0,0,0,0.5);
   -webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
   box-shadow:         5px 5px 10px rgba(0,0,0,0.5);
-
+  overflow: hidden;
+  padding-bottom: 50px;
 
 }
 
@@ -102,12 +110,14 @@ div.output pre {
   background: none;
   border: none;
   width: 100%;
-  height: 100%;
+  height: 90%;
   overflow: auto;
   box-shadow: none;
-          font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; !important;
-
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; !important;
+  border-bottom: 1px solid #666;
+  padding-bottom: 10px;
 }
+
 div.output .stdout, div.output pre {
   color: #e6e6e6;
 }
@@ -121,8 +131,8 @@ div.output .buttons {
   position: absolute;
   float: none;
   top: auto;
-  right: 10px;
-  bottom: 10px;
+  right: 25px;
+  bottom: 25px;
   z-index: 3;
 }
 button.button {
@@ -131,17 +141,27 @@ button.button {
 
 /* ACE editor */
 .reveal .editor{
- position: absolute;
- margin-left: auto;
-        width: 800px;
-        height: 400px;
-        display:block;
-        text-align: left;
-        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; !important;
-        font-size: 16px;
-        line-height: normal;
-
+  position: absolute;
+  margin-left: auto;
+  width: 100%;
+  height: 400px;
+  display:block;
+  text-align: left;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace; !important;
+  font-size: 16px;
+  line-height: normal;
 }
+
+.reveal .xs{
+  height:300px;
+}
+.reveal .s{
+  height:325px;
+}
+.reveal .m{
+  height:350px;
+}
+
 div.ace_gutter{
   width: 60px;
 }
@@ -214,3 +234,7 @@ span.ace_fold-widget {
 ::-webkit-scrollbar-corner {
     background: #000;
 }
+/*
+.reveal, .reveal .slides, .slides, section { position: absolute !important; width: 100% !important; height: 100% !important;}
+.playground, .playground .editor, .playground code { position: absolute !important; top: 0px; left: 0; width: 100% !important;height: 100% !important; margin: 0 !important; }
+*/

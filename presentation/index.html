@@ -33,6 +33,7 @@
 		<link rel="stylesheet" type="text/css" href="css/user/tomorrow-night-eighties.css">
 		<link rel="stylesheet" type="text/css" href="css/user/main.css">
 		<link rel="stylesheet" type="text/css" href="css/user/gh-buttons.css">
+		<link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.10.2.custom/css/ui-darkness/jquery-ui-1.10.2.custom.min.css">
 	</head>
 
 	<body>
@@ -170,21 +171,21 @@ After we rolled out our Go version, we reduced our server count to two and we re
 	</ul>
 	
 	
-	<code style="height:250px" data-src="examples/imports.go">
+	<code class="xs" data-src="examples/imports.go">
 	</code>
 </section>
 <section>
 	<h3>Packages only export Capitalized names</h3>
 	<p>That's how you control what is private / public</p>
 		
-	<code style="height:250px" data-src="examples/exported_names.go">
+	<code class="xs" data-src="examples/exported_names.go">
 	</code>
 </section>
 <section>
 	<h3>Functions</h3>
 	<p>Inputs and outputs typed, passed by value</p>
 		
-	<code style="height:250px" data-src="examples/functions.go"></code>
+	<code class="xs" data-src="examples/functions.go"></code>
 </section>
 <section>
 	<h3>Functions can return multiple values</h3>
@@ -203,7 +204,7 @@ After we rolled out our Go version, we reduced our server count to two and we re
 <section>
 	<h2>Variables are statically typed</h2>
 	<p>The type can be set explicity or implicitly</p>
-	<code style="height:250px" data-src="examples/var_init.go"></code>
+	<code class="xs" data-src="examples/var_init.go"></code>
 </section>
 <section>
 	<h2>Basic built-in types</h2>
@@ -216,26 +217,26 @@ After we rolled out our Go version, we reduced our server count to two and we re
 <section>
 	<h2>Arrays and slices</h2>
 	<p>The former, fixed size, the latter, flexible</p>
-	<code style="height:300px" data-src="examples/slices.go"></code>
+	<code class="s" data-src="examples/slices.go"></code>
 </section>
 <section>
 	<h2>Maps</h2>
 	<p>The keys and values can be any type</p>
-	<code style="height:300px" data-src="examples/maps.go"></code>
+	<code class="s" data-src="examples/maps.go"></code>
 </section>
 <section>
 	<h2>Structs</h2>
 	<p>They're just collections of fields, as in C</p>
-	<code style="height:300px" data-src="examples/structs.go"></code>
+	<code class="s" data-src="examples/structs.go"></code>
 </section>
 <section>
 	<h2>Struct methods</h2>
 	<p>The struct type precedes the function definition</p>
-	<code style="height:300px" data-src="examples/struct_methods.go"></code>
+	<code class="s" data-src="examples/struct_methods.go"></code>
 </section>
 <section>
 	<h2>All Go types have default values</h2>	
-	<code style="height:300px" data-src="examples/type_default_values.go"></code>
+	<code class="s" data-src="examples/type_default_values.go"></code>
 </section>
 </section>
 <!-- END VERTICAL -->
@@ -249,17 +250,49 @@ After we rolled out our Go version, we reduced our server count to two and we re
 <section>
 	<h2>for: the only loop in Go</h2>
 	<p>But, it's pretty flexible</p>
-	<code style="height:250px" data-src="examples/for.go"></code>
+	<code class="xs" data-src="examples/for.go"></code>
 </section>
 <section>
 	<h2>if</h2>
 	<p>Can include an initialization statement, like "for"</p>
-	<code style="height:300px" data-src="examples/if.go"></code>
+	<code class="s" data-src="examples/if.go"></code>
 </section>
 </section>
 <!-- END VERTICAL -->
 
 
+<!-- START VERTICAL -->
+<section>
+<section>
+<h1>Concurrency</h1>
+</section>
+<section>
+	<h2>Goroutines</h2>
+	<p>Runtime, independent threads of execution</p>
+	<code class="m" data-src="examples/goroutines.go"></code>
+</section>
+<section>
+	<h2>Channels</h2>
+	<p>Used for communicating, usually between goroutines</p>
+	<code class="s" data-src="examples/channels.go"></code>
+</section>
+<section>
+	<h2>Buffered Channels</h2>
+	<p>Sends block when full; Reads block when empty</p>
+	<code class="s" data-src="examples/buffered_channels.go"></code>
+</section>
+</section>
+<!-- END VERTICAL -->
+
+
+<section>
+	<h2>More resources for learning Go</h2>
+	<ul>
+		<li>http://golang.org/</li>
+		<li>http://tour.golang.org/</li>
+		<li>http://talks.golang.org/</li>
+	</ul>
+</section>
 <section>
 	<h1>THE END</h1>
 	<p>
@@ -307,6 +340,11 @@ After we rolled out our Go version, we reduced our server count to two and we re
 		<script src='js/socket.js' type="text/javascript" charset="utf-8"></script>
 		<script src='js/play.js' type="text/javascript" charset="utf-8"></script>
 	<script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="lib/jquery-ui-1.10.2.custom/js/jquery-ui-1.10.2.custom.min.js"></script>
+	<script type="text/javascript">
+		$("div.output").draggable();
+		$("div.output").resizable();
+	</script>
 
 	</body>
 </html>
