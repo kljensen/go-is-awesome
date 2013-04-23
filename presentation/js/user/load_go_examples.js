@@ -80,6 +80,13 @@ $(document).ready(function () {
 	    var editor = ace.edit(el);
 	    editor.setTheme("ace/theme/tomorrow_night");
 	    editor.getSession().setMode("ace/mode/golang");
+
+	    // Put the cursor on main if it is there
+	    var result = editor.find("func main() {");
+	    if (typeof(result) != "undefined"){
+		    editor.gotoLine(result.start.row + 1);
+	    	
+	    }
 	}
 
 	// Activate each of the code regions
