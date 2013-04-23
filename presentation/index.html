@@ -89,6 +89,20 @@
 
 				</section>
 				<section>
+					<h2>Go history</h2>
+					<ul>
+						<li>Conceived in 2007 at Google</li>
+						<li>Profoundly experienced authors</li>
+						<ul>
+							<li>Ken Thompson: Unix, B language (predecessor to C), Plan 9, UTF–8</li>
+							<li>Rob Pike: Plan 9, Inferno OS, Limbo  language, UTF–8</li>
+							<li>Russ Cox: libtask for Unix</li>
+						</ul>
+						<li>Announcement in November 2009.</li>
+						<li>Go 1 released in March 2012.</li>
+					</ul>
+				</section>
+				<section>
 					<h2>Design</h2>
 
 					<blockquote>Consensus drove the design. Nothing went into the language until [Ken Thompson, Robert Griesemer, and myself] all agreed that it was right. Some features didn’t get resolved until after a year or more of discussion.</blockquote>
@@ -168,17 +182,11 @@ After we rolled out our Go version, we reduced our server count to two and we re
 	<ul>
 		<li>Every piece of code lives in a packge</li>
 		<li>Imports give you access to other packages</li>
+		<li>Only capitalized names are public outside package</li>
 	</ul>
 	
 	
 	<code class="xs" data-src="examples/imports.go">
-	</code>
-</section>
-<section>
-	<h3>Packages only export Capitalized names</h3>
-	<p>That's how you control what is private / public</p>
-		
-	<code class="xs" data-src="examples/exported_names.go">
 	</code>
 </section>
 <section>
@@ -190,7 +198,7 @@ After we rolled out our Go version, we reduced our server count to two and we re
 <section>
 	<h3>Functions can return multiple values</h3>
 	
-	<code style="height:275px" data-src="examples/function_multi_return.go">
+	<code class="l" data-src="examples/function_multi_return.go">
 	</code>
 </section>
 </section>
@@ -204,20 +212,19 @@ After we rolled out our Go version, we reduced our server count to two and we re
 <section>
 	<h2>Variables are statically typed</h2>
 	<p>The type can be set explicity or implicitly</p>
-	<code class="xs" data-src="examples/var_init.go"></code>
+	<code class="s" data-src="examples/var_init.go"></code>
 </section>
 <section>
 	<h2>Basic built-in types</h2>
-	<code data-src="examples/builtin_types.go"></code>
+	<code class="xl" data-src="examples/builtin_types.go"></code>
 </section>
 <section>
-	<h2>Same code, using implicit format</h2>
+	<p>Same code, using implicit format</p>
 	<code data-src="examples/builtin_types_implicit.go"></code>
 </section>
 <section>
 	<h2>Arrays and slices</h2>
-	<p>The former, fixed size, the latter, flexible</p>
-	<code class="s" data-src="examples/slices.go"></code>
+	<code class="l" data-src="examples/slices.go"></code>
 </section>
 <section>
 	<h2>Maps</h2>
@@ -235,8 +242,8 @@ After we rolled out our Go version, we reduced our server count to two and we re
 	<code class="s" data-src="examples/struct_methods.go"></code>
 </section>
 <section>
-	<h2>All Go types have default values</h2>	
-	<code class="s" data-src="examples/type_default_values.go"></code>
+	<h2>Default values</h2>	
+	<code class="l" data-src="examples/type_default_values.go"></code>
 </section>
 </section>
 <!-- END VERTICAL -->
@@ -249,13 +256,15 @@ After we rolled out our Go version, we reduced our server count to two and we re
 </section>
 <section>
 	<h2>for: the only loop in Go</h2>
-	<p>But, it's pretty flexible</p>
-	<code class="xs" data-src="examples/for.go"></code>
+	<code class="l" data-src="examples/for.go"></code>
 </section>
 <section>
 	<h2>if</h2>
-	<p>Can include an initialization statement, like "for"</p>
-	<code class="s" data-src="examples/if.go"></code>
+	<code class="l" data-src="examples/if.go"></code>
+</section>
+<section>
+	<h2>range</h2>
+	<code class="l" data-src="examples/range.go"></code>
 </section>
 </section>
 <!-- END VERTICAL -->
@@ -264,12 +273,28 @@ After we rolled out our Go version, we reduced our server count to two and we re
 <!-- START VERTICAL -->
 <section>
 <section>
-<h1>Concurrency</h1>
+	<h2>Concurrency in Go</h2>
+	<ul>
+<li>goroutines: concurrent execution</li>
+<li>channels: synchronization and messaging</li>
+<li>select: multi-way concurrent control</li>
+	</ul>
+	<a class="ref" href="http://talks.golang.org/2012/waza.slide#4">http://talks.golang.org/2012/waza.slide#4</a>
+
 </section>
 <section>
 	<h2>Goroutines</h2>
-	<p>Runtime, independent threads of execution</p>
-	<code class="m" data-src="examples/goroutines.go"></code>
+	<p>Independent threads of execution</p>
+	<code class="l" data-src="examples/goroutines.go"></code>
+</section>
+<section>
+	<h2>Goroutine details</h2>
+	<ul>
+		<li>Like "&" at the end of a shell command</li>
+		<li>Lightweight, can have 10k+ no sweat</li>
+		<li>Each gets its own stack that grows, shrinks</li>
+		<li>Are multiplexed onto OS threads by runtime</li>
+	</ul>
 </section>
 <section>
 	<h2>Channels</h2>
@@ -278,12 +303,53 @@ After we rolled out our Go version, we reduced our server count to two and we re
 </section>
 <section>
 	<h2>Buffered Channels</h2>
-	<p>Sends block when full; Reads block when empty</p>
 	<code class="s" data-src="examples/buffered_channels.go"></code>
+</section>
+<section>
+	<h2>Channel details</h2>
+	<blockquote>Don't communicate by sharing memory; share memory by communicating. </blockquote>
+	<ul>
+		<li><-c blocks if nothing to read</li>
+		<li>c<- blocks if channel is full</li>
+		<li>Powerful and expressive synchronization mechanism.</li>
+	</ul>
+</section>
+<section>
+	<h2>Select</h2>
+	<code class="l" data-src="examples/select.go"></code>
+</section>
+<section>
+	<h2>Select details</h2>
+	<ul>
+		<li>A control structure unique to concurrency</li>
+		<li>Like "switch", but each case is a communication</li>
+		<li>Blocks until one can proceed</li>
+	</ul>
 </section>
 </section>
 <!-- END VERTICAL -->
 
+<section>
+<section>
+	<h2>Concurrency Examples</h2>
+	<ul>
+		<li>Parallel workers & fan in</li>
+		<li>Statically linked binaries</li>
+		<li>Cross compilation</li>
+	</ul>
+</section>
+</section>
+
+<section>
+<section>
+	<h2>Parallel workers & fan in</h2>
+	<ul>
+		<li>'Batteries included' standard library</li>
+		<li>Statically linked binaries</li>
+		<li>Cross compilation</li>
+	</ul>
+</section>
+</section>
 
 <section>
 	<h2>More resources for learning Go</h2>
