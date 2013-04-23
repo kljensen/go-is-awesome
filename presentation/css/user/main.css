@@ -68,9 +68,9 @@ div.playground {
 div.playground code{
   margin: auto;
   margin-bottom: 20px;
-  -moz-box-shadow:    5px 5px 10px rgba(0,0,0,0.5);
-  -webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-  box-shadow:         5px 5px 10px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 12px 6px -6px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 12px 6px -6px rgba(0,0,0,0.5);
+  box-shadow: 0 12px 6px -6px rgba(0,0,0,0.5);
 }
 div.playground a.minmax{
   display:block;
@@ -97,9 +97,10 @@ div.output {
   -o-border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  -moz-box-shadow:    5px 5px 10px rgba(0,0,0,0.5);
-  -webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-  box-shadow:         5px 5px 10px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 6px -6px rgba(0,0,0,0.5);
+
   overflow: hidden;
   padding-bottom: 50px;
 
@@ -161,6 +162,12 @@ button.button {
 }
 .reveal .m{
   height:350px;
+}
+.reveal .l{
+  height:375px;
+}
+.reveal .xl{
+  height:450px;
 }
 
 div.ace_gutter{
@@ -225,7 +232,7 @@ span.ace_fold-widget {
 ::-webkit-scrollbar {
     height: 12px;
   width: 12px;
-  background: #000;
+  background: #25282C;
     }
 ::-webkit-scrollbar-thumb {
     background: #404447;
