@@ -47,7 +47,9 @@ blockquote.small{
 	font-size: 70%;
 }
 
-
+.reveal p{
+  margin-top: 20px;
+}
 /* Golang code styling */
 /*.reveal code {
   padding: 0px
