@@ -101,6 +101,7 @@
 						<li>Announcement in November 2009.</li>
 						<li>Go 1 released in March 2012.</li>
 					</ul>
+					<a class="ref" href="http://synflood.at/tmp/golang-slides/mrmcd2012.html#4">http://synflood.at/tmp/golang-slides/mrmcd2012.html#4</a>
 				</section>
 				<section>
 					<h2>Design</h2>
@@ -274,12 +275,15 @@ After we rolled out our Go version, we reduced our server count to two and we re
 <section>
 <section>
 	<h2>Concurrency in Go</h2>
+		<blockquote>Don't communicate by sharing memory; share memory by communicating. </blockquote>
 	<ul>
 <li>goroutines: concurrent execution</li>
 <li>channels: synchronization and messaging</li>
 <li>select: multi-way concurrent control</li>
 	</ul>
-	<a class="ref" href="http://talks.golang.org/2012/waza.slide#4">http://talks.golang.org/2012/waza.slide#4</a>
+<!-- <p>Based on Communicating Sequential Processes (CSP) by C. A. R. Hoare.</p> -->
+	<!-- <a class="ref" href="http://talks.golang.org/2012/waza.slide#4">http://talks.golang.org/2012/waza.slide#4</a> -->
+
 
 </section>
 <section>
@@ -307,7 +311,6 @@ After we rolled out our Go version, we reduced our server count to two and we re
 </section>
 <section>
 	<h2>Channel details</h2>
-	<blockquote>Don't communicate by sharing memory; share memory by communicating. </blockquote>
 	<ul>
 		<li><-c blocks if nothing to read</li>
 		<li>c<- blocks if channel is full</li>
@@ -334,15 +337,30 @@ After we rolled out our Go version, we reduced our server count to two and we re
 	<h2>Concurrency Examples</h2>
 	<ul>
 		<li>Parallel workers & fan in</li>
-		<li>Statically linked binaries</li>
-		<li>Cross compilation</li>
+		<li>Timeout</li>
+	</ul>
+</section>
+<section>
+	<h2>Parallel workers & fan in</h2>
+	<code class="l" data-src="examples/parallel_fetch.go"></code>
+</section>
+<section>
+	<h2>Timeouts</h2>
+	<code class="l" data-src="examples/parallel_fetch_timeout.go"></code>
+</section>
+<section>
+	<h2>Notice</h2>
+	<ul>
+		<li>No locks: they're rarely needed with Go</li>
+		<li>No condition variables: channel blocking manages state</li>
+		<li>No callbacks: the execution is linear</li>
 	</ul>
 </section>
 </section>
 
 <section>
 <section>
-	<h2>Parallel workers & fan in</h2>
+	<h2>Other great stuff about Go</h2>
 	<ul>
 		<li>'Batteries included' standard library</li>
 		<li>Statically linked binaries</li>

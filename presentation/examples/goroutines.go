@@ -15,8 +15,8 @@ func say(s string) {
 
 func main() {
 	rand.Seed(time.Now().UTC().UnixNano())
-	go say("foo")
-	go say("woot")
-	go say("bar")
+	go say("AA")
+	go say("BB")
+	go say("CC")
 	time.Sleep(5 * time.Second)
 }
