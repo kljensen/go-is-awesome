@@ -1,4 +1,5 @@
 package main
+
 import "fmt"
 
 func main() {
@@ -14,4 +15,7 @@ func main() {
 
 	x := 'a'
 	fmt.Println(x)
+
+	y := "wootditty"
+	fmt.Println(y)
 }

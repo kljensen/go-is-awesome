@@ -1,4 +1,5 @@
 package main
+
 import "fmt"
 
 func main() {
@@ -18,4 +19,8 @@ func main() {
 	var x byte
 	x = 'a'
 	fmt.Println(x)
+
+	var y string
+	y = "wootditty"
+	fmt.Println(y)
 }
