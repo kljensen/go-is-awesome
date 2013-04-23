@@ -3,6 +3,21 @@
 
 (function () {
 
+	// Key bindings
+	Mousetrap.bind('command+shift+r', function(e) {
+		$('section.present').not('.stack').find('button.run').eq(0).click();
+		return false;
+	});
+	// Mousetrap.bind('escape', function(e) {
+	// 	console.log('caught escape')
+	// 	if ($('#minmax').length) {
+	// 		console.log('restoring sizes')
+	// 		restoreEditorSizes();
+	// 		return false;
+	// 	};
+	// 	return true;
+	// });
+
 	function restoreEditorSizes () {
 		$('#minmax').remove();
 
