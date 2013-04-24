@@ -25,6 +25,16 @@ assuming that you're in the `server` directory.  Of course, to build
 
 in order to fetch dependencies.
 
+## How the presentation works
+
+The `code` blocks are turned into ACE editor areas, and wired up
+to the Present websocket service using slightly altered js from that
+project.  The `data-src` attribute of the `code` blocks is used to
+load the correct Go example from the `examples` directory.
+
+The organization of the js assets is a bit ungainly; it was put
+together in haste.
+
 ## Resources
 
 This code uses all of the following:
