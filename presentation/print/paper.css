@@ -10,31 +10,22 @@
    background. This prevents elements from extending
    beyond the edge of the printed page, and prevents
    unnecessary background images from printing */
-
-* {
-	-webkit-print-color-adjust: exact;
-}
-
 body {
-	font-size: 18pt;
-	width: 297mm;
-	height: 229mm;
-	margin: 0 auto !important;
+	background: #fff;
+	font-size: 13pt;
+	width: auto;
+	height: auto;
 	border: 0;
+	margin: 0 5%;
 	padding: 0;
 	float: none !important;
 	overflow: visible;
 }
-
 html {
-	width: 100%;
-	height: 100%;
+	background: #fff;
+	width: auto;
+	height: auto;
 	overflow: visible;
-}
-
-@page {
-	size: letter landscape;
-	margin: 0;
 }
 
 /* SECTION 2: Remove any elements not needed in print.
@@ -51,30 +42,49 @@ html {
 
 /* SECTION 3: Set body font face, size, and color.
    Consider using a serif font for readability. */
-body, p, td, li, div {
-	font-size: 18pt;
+body, p, td, li, div, a {
+	font-size: 16pt!important;
+	font-family: Georgia, "Times New Roman", Times, serif !important;
+	color: #000;
 }
 
 /* SECTION 4: Set heading font face, sizes, and color.
    Diffrentiate your headings from your body text.
    Perhaps use a large sans-serif for distinction. */
 h1,h2,h3,h4,h5,h6 {
+	color: #000!important;
+	height: auto;
+	line-height: normal;
+	font-family: Georgia, "Times New Roman", Times, serif !important;
 	text-shadow: 0 0 0 #000 !important;
+	text-align: left;
+	letter-spacing: normal;
 }
+/* Need to reduce the size of the fonts for printing */
+h1 { font-size: 26pt !important;  }
+h2 { font-size: 22pt !important; }
+h3 { font-size: 20pt !important; }
+h4 { font-size: 20pt !important; font-variant: small-caps; }
+h5 { font-size: 19pt !important; }
+h6 { font-size: 18pt !important; font-style: italic; }
 
 /* SECTION 5: Make hyperlinks more usable.
    Ensure links are underlined, and consider appending
    the URL to the end of the link for usability. */
 a:link,
 a:visited {
+	color: #000 !important;
 	font-weight: bold;
 	text-decoration: underline;
 }
-
-.reveal pre code {
-	overflow: hidden !important;
-	font-family: monospace !important;
+/*
+.reveal a:link:after,
+.reveal a:visited:after {
+	content: " (" attr(href) ") ";
+	color: #222 !important;
+	font-size: 90%;
 }
+*/
 
 
 /* SECTION 6: more reveal.js specific additions by @skypanther */
@@ -86,27 +96,23 @@ ul, ol, div, p {
 	display: block;
 	overflow: visible;
 	margin: auto;
-}
-.reveal {
-	width: auto !important;
-	height: auto !important;
-	overflow: hidden !important;
+	text-align: left !important;
 }
 .reveal .slides {
 	position: static;
-	width: 100%;
+	width: auto;
 	height: auto;
 
 	left: auto;
 	top: auto;
-	margin: 0 !important;
-	padding: 0 !important;
+	margin-left: auto;
+	margin-top: auto;
+	padding: auto;
 
 	overflow: visible;
 	display: block;
 
 	text-align: center;
-
 	-webkit-perspective: none;
 	   -moz-perspective: none;
 	    -ms-perspective: none;
@@ -117,23 +123,21 @@ ul, ol, div, p {
 	    -ms-perspective-origin: 50% 50%;
 	        perspective-origin: 50% 50%;
 }
-.reveal .slides section {
-
-	page-break-after: always !important;
+.reveal .slides>section,
+.reveal .slides>section>section {
 
 	visibility: visible !important;
-	position: relative !important;
-	width: 100% !important;
-	height: 229mm !important;
-	min-height: 229mm !important;
+	position: static !important;
+	width: 90% !important;
+	height: auto !important;
 	display: block !important;
-	overflow: hidden !important;
+	overflow: visible !important;
 
-	left: 0 !important;
-	top: 0 !important;
-	margin: 0 !important;
-	padding: 2cm 2cm 0 2cm !important;
-	box-sizing: border-box !important;
+	left: 0% !important;
+	top: 0% !important;
+	margin-left: 0px !important;
+	margin-top: 0px !important;
+	padding: 20px 0px !important;
 
 	opacity: 1 !important;
 
@@ -147,16 +151,9 @@ ul, ol, div, p {
 	    -ms-transform: none !important;
 	        transform: none !important;
 }
-.reveal section.stack {
-	margin: 0 !important;
-	padding: 0 !important;
-	page-break-after: avoid !important;
-	height: auto !important;
-	min-height: auto !important;
-}
-.reveal .absolute-element {
-	margin-left: 2.2cm;
-	margin-top: 1.8cm;
+.reveal section {
+	page-break-after: always !important;
+	display: block !important;
 }
 .reveal section .fragment {
 	opacity: 1 !important;
@@ -167,24 +164,13 @@ ul, ol, div, p {
 	    -ms-transform: none !important;
 	        transform: none !important;
 }
-.reveal section .slide-background {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 0;
+.reveal section:last-of-type {
+	page-break-after: avoid !important;
 }
-.reveal section>* {
-	position: relative;
-	z-index: 1;
-}
-.reveal img {
+.reveal section img {
+	display: block;
+	margin: 15px 0px;
+	background: rgba(255,255,255,1);
+	border: 1px solid #666;
 	box-shadow: none;
-}
-.reveal .roll {
-	overflow: visible;
-	line-height: 1em;
-}
-.reveal small a {
-	font-size: 16pt !important;
 }
