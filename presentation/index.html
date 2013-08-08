@@ -43,7 +43,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
-				<section>
+				<section data-background="img/gopher2.png" data-background-size="50%" data-background-position="bottom left">
 					<h1>GO is Awesome</h1>
 					<h3>Seriously, I will convince you as such</h3>
 					<p>
@@ -78,7 +78,7 @@
 						<p>&</p>
 					<ul>
 						<li>lightweight, avoids unnecessary repetition</li>
-						<li>object oriented, but not in the usual way</li>
+						<li>object oriented (via types and interfaces)</li>
 						<li>concurrent, in a way that keeps you sane</li>
 						<li>designed for working programmers</li>
 					</ul>
@@ -105,39 +105,41 @@
 				</section>
 
 				<section>
-					<h1>Social proof</h1>
-					(lots of people like it)
-				</section>
-				
-				<section>
-					<h2>Iron.io</h2>
-					<a href="http://blog.iron.io/2013/03/how-we-went-from-30-servers-to-2-go.html">How We Went from 30 Servers to 2: Go</a>
-					<blockquote class="small">
-						Our sustained CPU usage on our servers was approximately 50-60%...
-At some threshold above 50%, our Rails servers would spike up to 100% CPU usage and become unresponsive.<br><br>
-After we rolled out our Go version, we reduced our server count to two and we really only had two for redundancy. They were barely utilized, it was almost as if nothing was running on them. Our CPU utilization was less than 5% and the entire process started up with only a few hundred KB's of memory (on startup) vs our Rails apps which were ~50MB (on startup).
-					</blockquote>
-					<a class="ref" href="http://blog.iron.io/2013/03/how-we-went-from-30-servers-to-2-go.html">http://blog.iron.io/2013/03/how-we-went-from-30-servers-to-2-go.html</a>
-				</section>
+					<section>
+						<h1>Social proof</h1>
+						(lots of people like it)
+					</section>
+					
+					<section>
+						<h2>Iron.io</h2>
+						<a href="http://blog.iron.io/2013/03/how-we-went-from-30-servers-to-2-go.html">How We Went from 30 Servers to 2: Go</a>
+						<blockquote class="small">
+							Our sustained CPU usage on our servers was approximately 50-60%...
+	At some threshold above 50%, our Rails servers would spike up to 100% CPU usage and become unresponsive.<br><br>
+	After we rolled out our Go version, we reduced our server count to two and we really only had two for redundancy. They were barely utilized, it was almost as if nothing was running on them. Our CPU utilization was less than 5% and the entire process started up with only a few hundred KB's of memory (on startup) vs our Rails apps which were ~50MB (on startup).
+						</blockquote>
+						<a class="ref" href="http://blog.iron.io/2013/03/how-we-went-from-30-servers-to-2-go.html">http://blog.iron.io/2013/03/how-we-went-from-30-servers-to-2-go.html</a>
+					</section>
 
-				<section>
-					<h2>Bit.ly</h2>
-					<a href="http://word.bitly.com/post/29550171827/go-go-gadget">Go Go Gadget</a>
-					<blockquote class="small">
-						We’ve had developers start from zero experience with Go to writing working, production, code in a day. That is why we’re so excited about its place in our stack.
-					</blockquote>
-					<a class="ref" href="http://word.bitly.com/post/29550171827/go-go-gadget">http://word.bitly.com/post/29550171827/go-go-gadget</a>
+					<section>
+						<h2>Bit.ly</h2>
+						<a href="http://word.bitly.com/post/29550171827/go-go-gadget">Go Go Gadget</a>
+						<blockquote class="small">
+							We’ve had developers start from zero experience with Go to writing working, production, code in a day. That is why we’re so excited about its place in our stack.
+						</blockquote>
+						<a class="ref" href="http://word.bitly.com/post/29550171827/go-go-gadget">http://word.bitly.com/post/29550171827/go-go-gadget</a>
 
-				</section>
+					</section>
 
-				<section>
-					<h2>Cloudflare</h2>
-					<a href="http://blog.cloudflare.com/go-at-cloudflare">Go at Cloudflare</a>
-					<blockquote class="small">
-						We chose to use Go for Railgun because Railgun is inherently highly concurrent. A single instance of the Railgun client should be able to handle large numbers of requests from the CloudFlare data center for content and then multiplex them across an Internet connection to be handled. Go's concurrency makes writing software that must scale up and down very easy.
-					</blockquote>
-					<a class="ref" href="http://blog.cloudflare.com/go-at-cloudflare">http://blog.cloudflare.com/go-at-cloudflare</a>
+					<section>
+						<h2>Cloudflare</h2>
+						<a href="http://blog.cloudflare.com/go-at-cloudflare">Go at Cloudflare</a>
+						<blockquote class="small">
+							We chose to use Go for Railgun because Railgun is inherently highly concurrent. A single instance of the Railgun client should be able to handle large numbers of requests from the CloudFlare data center for content and then multiplex them across an Internet connection to be handled. Go's concurrency makes writing software that must scale up and down very easy.
+						</blockquote>
+						<a class="ref" href="http://blog.cloudflare.com/go-at-cloudflare">http://blog.cloudflare.com/go-at-cloudflare</a>
 
+					</section>
 				</section>
 
 				<section>
@@ -157,7 +159,7 @@ After we rolled out our Go version, we reduced our server count to two and we re
 <section>
 <section>
 	<h1>Basic Structure</h1>
-	<p>(Looks like C without semicolons)</p>
+	<p>(C without the parts that stink)</p>
 </section>
 <section>
 	<h2>Packages</h2>
@@ -224,6 +226,11 @@ After we rolled out our Go version, we reduced our server count to two and we re
 	<code class="s" data-src="examples/struct_methods.go"></code>
 </section>
 <section>
+	<h2>Interfaces</h2>
+	<p>No inheritence; use interfaces, similar to duck-typing</p>
+	<code class="s" data-src="examples/interfaces.go"></code>
+</section>
+<section>
 	<h2>Default values</h2>	
 	<code class="l" data-src="examples/type_default_values.go"></code>
 </section>
@@ -237,7 +244,7 @@ After we rolled out our Go version, we reduced our server count to two and we re
 <h1>Control flow</h1>
 </section>
 <section>
-	<h2>for: the only loop in Go</h2>
+	<h2>for: one loop to rule them all</h2>
 	<code class="l" data-src="examples/for.go"></code>
 </section>
 <section>
@@ -310,10 +317,7 @@ After we rolled out our Go version, we reduced our server count to two and we re
 		<li>Blocks until one can proceed</li>
 	</ul>
 </section>
-</section>
-<!-- END VERTICAL -->
 
-<section>
 <section>
 	<h2>Concurrency Examples</h2>
 	<ul>
@@ -339,13 +343,16 @@ After we rolled out our Go version, we reduced our server count to two and we re
 	</ul>
 </section>
 </section>
+<!-- END VERTICAL -->
 
 <section>
 <section>
 	<h2>Other great stuff about Go</h2>
 	<ul>
 		<li>'Batteries included' standard library</li>
-		<li>Statically linked binaries</li>
+		<li>Trivial dependency management</li>
+		<li>Compiles almost instantly</li>
+		<li>Statically-linked binaries</li>
 		<li>Cross compilation</li>
 	</ul>
 </section>
@@ -359,7 +366,7 @@ After we rolled out our Go version, we reduced our server count to two and we re
 		<li>http://talks.golang.org/</li>
 	</ul>
 </section>
-<section>
+<section data-background="img/gopher2.png" data-background-size="75%" data-background-position="bottom left">
 	<h1>THE END</h1>
 	<p>
 		<small>Kyle Jensen / <a href="http://twitter.com/datakyle">@DataKyle</a></small>
