@@ -1,5 +1,3 @@
-Go is Awesome
-=============
 ![Go is Awesome presentation screenshot](https://raw.github.com/kljensen/go-is-awesome/master/presentation/img/presentation-screenshot.png)
 
 This is a presentation about [Go](http://golang.org) on which
