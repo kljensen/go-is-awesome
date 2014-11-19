@@ -2,11 +2,12 @@ package main
 
 import (
 	// "errors"
-	"code.google.com/p/go.talks/pkg/socket"
+	"golang.org/x/tools/playground/socket"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
+	"net/url"
 	"path/filepath"
 )
 
@@ -41,8 +42,13 @@ func main() {
 	addr1 := "localhost:8080"
 	log.Printf("Serving at %s\n", addr1)
 	mux := http.NewServeMux()
-	mux.Handle("/socket", socket.Handler)
-	mux.Handle("/", http.FileServer(http.Dir(pathToServe)))
 	server := &http.Server{Addr: addr1, Handler: mux}
+	origin := &url.URL{
+		Scheme: "http",
+		Host: addr1,
+	}
+
+	mux.Handle("/socket", socket.NewHandler(origin))
+	mux.Handle("/", http.FileServer(http.Dir(pathToServe)))
 	log.Fatal(server.ListenAndServe())
 }
