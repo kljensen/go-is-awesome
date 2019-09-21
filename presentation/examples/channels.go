@@ -12,6 +12,6 @@ func main() {
 	}()
 
 	x <- "yo"
-	x <- "duder,"
+	x <- "my friend,"
 	x <- "woot!"
 }
