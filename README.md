@@ -17,12 +17,8 @@ to run the `server/main.go` code as such
 
 	go run main.go ../presentation
 
-assuming that you're in the `server` directory.  Of course, to build
-`main.go` you'll likely first have to run
-
-	go get
-
-in order to fetch dependencies.
+assuming that you're in the `server` directory.  The dependencies are
+tracked with Go modules. 
 
 ## How the presentation works
 
