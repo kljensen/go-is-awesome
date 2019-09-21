@@ -1,0 +1,4 @@
+# golang.org/x/net v0.0.0-20190620200207-3b0461eec859
+golang.org/x/net/websocket
+# golang.org/x/tools v0.0.0-20190920225731-5eefd052ad72
+golang.org/x/tools/playground/socket
